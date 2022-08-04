@@ -35,20 +35,37 @@ void Zadacha27()
 ///Zadacha27();
 
  ///Напишите программу, которая задаёт массив из 8 случайных целых чисел и выводит отсортированный по модулю массив.
-void Zadacha29()
+int[] arr = {-2,1,7,5,19};
+void PrintArray(int[] array)
 {
-    int [] numbers = new int [8];
-    Console.Write("[");
-    for ( int i = 0; i < numbers.Length; i++)
-    {
-        numbers [i] = new Random(i).Next(0, 100);
-        Console.Write("  " + Method (i) + ""); 
-    }
-    Console.Write("]");
+    int count = array.Length;
 
-    int Method (int a)
+    for (int i = 0; i<count; i++)
     {
-        return numbers[a];
+        Console.WriteLine($"{array[i]}");
     }
+    Console.WriteLine();
 }
-Zadacha29();
+
+void SelectionSort(int [] array)
+{
+    for (int i = 0; i < array.Length -1; i++)
+    {
+        int minPosition = i;
+
+        for (int j = i + 1; j < array.Length; j++)
+        { 
+            if (array[j]< array[minPosition]) minPosition = j;
+    
+    
+        }
+             int temporary = array [i];
+          array [i] =  array[minPosition]; 
+          array[minPosition] = temporary; 
+    
+    }     
+
+}
+PrintArray(arr);
+SelectionSort(arr);
+PrintArray(arr);
